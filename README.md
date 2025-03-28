@@ -349,14 +349,8 @@ array:[
 ### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
 <pre>
- <code>    
-
-  "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
-
- </code>
-</pre>
-<pre>
  <code>
+	 
   "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
  </code>
 </pre>
