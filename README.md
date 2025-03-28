@@ -355,3 +355,8 @@ array:[
 
 </code>
 </pre>
+<pre>
+ <code>
+  <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
+ </code>
+</pre>
