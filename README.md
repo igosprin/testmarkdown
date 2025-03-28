@@ -315,67 +315,37 @@ array:[
 
 ## Модели данных <a name="models">
 ### Backend\Models\User<a name="Backend_Models_User">
-```PHP
-{
-    + "id": 40
-    + "first_name": "Тест"
-    + "last_name": "Тестович"
-    + "login": "Тест Тестович"
-    + "email" : "mail@test.com"
-    + "permissions" : ""
-    + "is_activated":false,
-	+ "role_id":5,
-	+ "activated_at":null,
-	+ "last_login":null,
-	+ "created_at":"2022-04-26T15:43:50.000000Z",
-	+ "updated_at":"2022-04-26T15:43:50.000000Z",
-	+ "deleted_at":null,
-	+ "is_superuser":0,
-	+ "is_password_expired":0,
-	+ "password_changed_at":null,
-	+ "author": BTDev\BlogExtension\Models\Author {
-		+ "id":1,
-		+ "nickname":"test-testovich",
-		+ "about":"",
-		+ "backend_user_id":20,
-		+ "deleted_at":null,
-		+ "created_at":"2022-04-26T15:48:40.000000Z",
-		+ "updated_at":"2022-04-27T17:10:22.000000Z"		
-	}
-}
 
-```
+<pre><code>{
+  "id": 40
+  "first_name": "Тест"
+  "last_name": "Тестович"
+  "login": "Тест Тестович"
+  "email" : "mail@test.com"
+  "permissions" : ""
+  "is_activated":false,
+  "role_id":5,
+  "activated_at":null,
+  "last_login":null,
+  "created_at":"2022-04-26T15:43:50.000000Z",
+  "updated_at":"2022-04-26T15:43:50.000000Z",
+  "deleted_at":null,
+  "is_superuser":0,
+  "is_password_expired":0,
+  "password_changed_at":null,
+  "author": BTDev\BlogExtension\Models\Author {
+	  "id":1,
+	  "nickname":"test-testovich",
+	  "about":"",
+	  "backend_user_id":20,
+	  "deleted_at":null,
+	  "created_at":"2022-04-26T15:48:40.000000Z",
+	  "updated_at":"2022-04-27T17:10:22.000000Z"		
+  }  
+}</code></pre>
 
 ### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
-<pre>
- <code>
- {
- "id": 2,
- "user_id": 29,
- "title": "",
- "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam",
- "excerpt": "",
- "content": " ",
- "content_html": "", 
- "published_at": "2021-10-28T15:00:00.000000Z",
- "published": 1,
- "created_at": "2021-10-28T12:53:34.000000Z",
- "updated_at": "2022-05-13T18:10:53.000000Z",
- "metadata":null,
- "navigation":[{
-	"id":0,
-	"level": "",
-	"innerText": "",
-	"innerHtml": "",
-	"outerHtml": ""
- }],
- "summary":"",
- "has_summary":true 	 
- "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
- }
- </code>
-</pre>
 <pre><code>{
   "id": 2,
   "user_id": 29,
