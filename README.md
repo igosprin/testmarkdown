@@ -353,7 +353,13 @@ array:[
   "title": "",
   "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam",
   "excerpt": "",
-  "content": " ", 
+  "content": " ",
+  "content_html": "", 
+  "published_at": "2021-10-28T15:00:00.000000Z",
+  "published": 1,
+  "created_at": "2021-10-28T12:53:34.000000Z",
+  "updated_at": "2022-05-13T18:10:53.000000Z",
+  "metadata":null,
 }</code></pre>
 <pre><code>{
   "id": 2,
