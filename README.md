@@ -346,7 +346,6 @@ array:[
 
 ### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
-
 <pre><code>{
   "id": 2,
   "user_id": 29,
