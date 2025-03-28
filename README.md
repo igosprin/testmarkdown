@@ -350,7 +350,7 @@ array:[
 
 <pre>
 {    
-    + "id": 2,
+	+ "id": 2,
 	+ "user_id": 29,
 	+ "title": "",
 	+ "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam+ ",
@@ -371,6 +371,6 @@ array:[
 	}],
 	+ "summary":"",
 	+ "has_summary":true
-    + "user": '<a href="https://www.npmjs.com/package/lodash" title="Lodash on npm">lodash</a>'[Backend\Models\User](#Backend_Models_User)
+	+ "user": '<a href="#Backend_Models_User" title="Lodash on npm">Backend\Models\User</a>'
 }
 </pre>
