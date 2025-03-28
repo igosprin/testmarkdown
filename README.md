@@ -360,6 +360,15 @@ array:[
   "created_at": "2021-10-28T12:53:34.000000Z",
   "updated_at": "2022-05-13T18:10:53.000000Z",
   "metadata":null,
+  "navigation":[{
+    "id":0,
+    "level": "",
+    "innerText": "",
+    "innerHtml": "",
+    "outerHtml": ""
+  }],
+  "summary":"",
+  "has_summary":true,
 }</code></pre>
 <pre><code>{
   "id": 2,
