@@ -347,7 +347,8 @@ array:[
 ```
 
 ### RainLab\Blog\Models\Post <a name="RainLab_Blog_Models_Post">
-```
+```html
+<pre>
 {    
     + "id": 2,
 	+ "user_id": 29,
@@ -372,5 +373,6 @@ array:[
 	+ "has_summary":true
     + "user": '<a href="https://www.npmjs.com/package/lodash" title="Lodash on npm">lodash</a>'[Backend\Models\User](#Backend_Models_User)
 }
+</pre>
 
 ```
