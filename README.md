@@ -374,3 +374,9 @@ array:[
 	+ "user": '<a href="#Backend_Models_User" title="Lodash on npm">Backend\Models\User</a>'
 }
 </pre>
+
+<pre>
+ <code>
+  <a href="https://github.com/gmarciani">gmarciani</a>
+ </code>
+</pre>
