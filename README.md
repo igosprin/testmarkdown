@@ -352,7 +352,7 @@ array:[
 <code>
 {    
 
-+ "user": '<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>'
+"user": '<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>'
 }
 </code>
 </pre>
