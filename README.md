@@ -377,7 +377,6 @@ array:[
  </code>
 </pre>
 <pre><code>{
-  this.element = element;
   "id": 2,
   "user_id": 29,
   "title": "",
