@@ -349,11 +349,11 @@ array:[
 ### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
 <pre>
-<code>    
+ <code>    
 
-"user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
+  "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
 
-</code>
+ </code>
 </pre>
 <pre>
  <code>
