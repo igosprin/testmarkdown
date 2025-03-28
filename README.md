@@ -370,7 +370,7 @@ array:[
 	}],
 	+ "summary":"",
 	+ "has_summary":true
-    + "user": [Backend\Models\User](#Backend_Models_User)
+    + "user": '<a href="https://www.npmjs.com/package/lodash" title="Lodash on npm">lodash</a>'[Backend\Models\User](#Backend_Models_User)
 }
 
 ```
