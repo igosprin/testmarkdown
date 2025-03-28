@@ -346,7 +346,7 @@ array:[
 
 ```
 
-### RainLab\Blog\Models\Post <a name="RainLab_Blog_Models_Post">
+### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
 <pre>
 	<code>
@@ -372,7 +372,7 @@ array:[
 		}],
 		+ "summary":"",
 		+ "has_summary":true
-		+ "user": '<a href="#Backend_Models_User" title="Backend\Models\User">Backend\Models\User</a>'
+		+ "user": '<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>'
 	}
 	</code>
 </pre>
