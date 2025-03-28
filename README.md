@@ -368,5 +368,4 @@ array:[
   }],
   "summary":"",
   "has_summary":true,
-  "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
 }</code></pre>
