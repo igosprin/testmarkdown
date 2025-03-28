@@ -346,10 +346,14 @@ array:[
 
 ### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
 
+
 <pre><code>{
   "id": 2,
   "user_id": 29,
-  "title": "",  
+  "title": "",
+  "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam",
+  "excerpt": "",
+  "content": " ", 
 }</code></pre>
 <pre><code>{
   "id": 2,
