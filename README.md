@@ -314,7 +314,7 @@ array:[
 
 
 ## Модели данных <a name="models">
-### Backend\Models\User <a name="Backend_Models_User">
+### Backend\Models\User<a name="Backend_Models_User">
 ```PHP
 {
     + "id": 40
@@ -349,34 +349,30 @@ array:[
 ### RainLab\Blog\Models\Post <a name="RainLab_Blog_Models_Post">
 
 <pre>
-{    
-	+ "id": 2,
-	+ "user_id": 29,
-	+ "title": "",
-	+ "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam+ ",
-	+ "excerpt": "",
-	+ "content": " ",
-	+ "content_html": "", 
-	+ "published_at": "2021-10-28T15:00:00.000000Z+ ",
-	+ "published": 1,
-	+ "created_at": "2021-10-28T12:53:34.000000Z+ ",
-	+ "updated_at": "2022-05-13T18:10:53.000000Z+ ",
-	+ "metadata":null,
-	+ "navigation":[{
-		+ "id":0,
-		+ "level": "",
-		+ "innerText": "",
-		+ "innerHtml": "",
-		+ "outerHtml": ""
-	}],
-	+ "summary":"",
-	+ "has_summary":true
-	+ "user": '<a href="#Backend_Models_User" title="Lodash on npm">Backend\Models\User</a>'
-}
-</pre>
-
-<pre>
- <code>
-  <a href="https://github.com/gmarciani">gmarciani</a>
- </code>
+	<code>
+	{    
+		+ "id": 2,
+		+ "user_id": 29,
+		+ "title": "",
+		+ "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam+ ",
+		+ "excerpt": "",
+		+ "content": " ",
+		+ "content_html": "", 
+		+ "published_at": "2021-10-28T15:00:00.000000Z+ ",
+		+ "published": 1,
+		+ "created_at": "2021-10-28T12:53:34.000000Z+ ",
+		+ "updated_at": "2022-05-13T18:10:53.000000Z+ ",
+		+ "metadata":null,
+		+ "navigation":[{
+			+ "id":0,
+			+ "level": "",
+			+ "innerText": "",
+			+ "innerHtml": "",
+			+ "outerHtml": ""
+		}],
+		+ "summary":"",
+		+ "has_summary":true
+		+ "user": '<a href="#Backend_Models_User" title="Backend\Models\User">Backend\Models\User</a>'
+	}
+	</code>
 </pre>
