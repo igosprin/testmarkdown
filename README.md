@@ -172,7 +172,7 @@
 	  "deleted_at":null,
 	  "created_at":"2022-04-26T15:48:40.000000Z",
 	  "updated_at":"2022-04-27T17:10:22.000000Z",
-      "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
+          "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
  }</code></pre>
  
  #### Структура возвращаемых данных из ``authorPostCategories``:
