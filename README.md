@@ -11,6 +11,7 @@
 - плагин GinoPane.BlogTimeToRead
 - плагин Vdomah.BlogViews
 - плагин Indikator.News
+- плагин Rahman.Blogtags
 
 ## Возможности и компоненты <a name="features"/>
 Плагин является дополнением к плагину RainLab.Blog. Основные дополнения:
@@ -173,6 +174,37 @@
 	  "updated_at":"2022-04-27T17:10:22.000000Z",
       "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
  }</code></pre>
+ 
+ #### Структура возвращаемых данных из ``authorPostCategories``:
+
+```
+array:[
+    "category-1-slug"=>"Category 1",
+    "category-2-slug"=>"Category 2",
+    ...
+]
+```
+#### Структура возвращаемых данных из ``authorNewsCategories``:
+
+
+```
+array:[
+    "category-1-slug"=>"Category 1",
+    "category-2-slug"=>"Category 2",
+    ...
+]
+```
+
+#### Структура возвращаемых данных из ``authorPostTags``:
+
+
+```
+array:[
+    "tag-1-slug"=>"tag 1",
+    "tag-2-slug"=>"tag 2",
+    ...
+]
+```
 
 **Методы:**
 
@@ -198,16 +230,35 @@
 #### Пример использования
 
 ```
-[authorsList]
+[authorProfile]
+nickname = "{{ :slug }}"
+postsPerPage = 20
+newsPerPage = 6
 
 ==
-{% set authors = authorsList.getAuthorsList() %}
-{% for person in authors %}
-    <img src="{{person.getAvatarThumb}}" alt="avatar"><br>
-    Nickname <a href="{{ 'testauthor'|page({ slug:person.author.nickname }) }}">{{person.author.nickname}}</a>
-    About author {{person.author.about|raw}} 
-    Full name (if not displays check is set in admin){{person.author.user.getFullNameAttribute}}<br>
+{% set posts = authorProfile.getPostsList() %}
+{% set news_list = authorProfile.getNewsList() %}
+
+<img class="g-width-100 g-height-100 g-mr-20 g-rounded-5" src="{{ author.user.getAvatarThumb(80)}}" alt="Author"/>
+{{ author.nickname }} <br>
+{{ author.user.getFullNameAttribute }} <br>
+{{ author.user.email }} <br>
+{{ author.about|raw }} <br>
+
+List of posts {{ authorsPostsCount }}<br>
+{% for post in posts %}
+  {{post.title}} <br>
+{% endfor %}    
+----
+List news {{authorsNewsCount}}<br>
+{% for news in news_list %}
+  {{news.title}} <br>
 {% endfor %}
+Tags:<br>
+{% for tag in authorPostTags %}
+  {{ tag }}
+{% endfor %}
+
 ```
 
 
