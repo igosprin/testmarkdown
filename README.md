@@ -20,7 +20,7 @@
 - [цветовой код HEX для каждой категории](#hex-code)
 - [время чтения поста](#post-time)
 - [количество просмотров поста](#count-show-post) 
-- [создание списка постов](#create-post-list) 
+- [создание пользовательского списка постов](#create-post-list) 
 - [Компоненты](#components)
     - [вывод всех авторов постов](#component-autor-list)
     - [вывод полной информации об авторе](#component-autor-profile)
@@ -105,7 +105,7 @@
 Свойство viewsBt кешируется на 2 часа.
 
 
-### Создание списка постов <a name="create-post-list">
+### Создание пользовательского списка постов <a name="create-post-list">
 
 Возможность создавать кастомные списки постов. Для создания списка перейти на страницу Blog(Блог) -> PostLists.
 
@@ -268,9 +268,9 @@ Tags:<br>
 ```
 
 
-### Вывод постов из списка <a name="post-list">
+### Вывод постов из пользовательского списка <a name="post-list">
 
-Вывод постов из списка.
+Вывод постов из пользовательского списка.
 
 **Название компонента:** [``postList``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/PostList.php)
 
@@ -384,9 +384,9 @@ limit = 2
 
 - `limit` - количество постов по каждой категории. Значение по-умолчанию: 10
 - `noPostsMessage` - сообщение выводимое в случаи отсутствия постов. Значение по-умолчанию: rainlab.blog::lang.settings.posts_no_posts_default
-- `categoryPage` - слуг для категорий постов. Значение по-умолчанию: blog/category
-- `postPage` - слуг для постов. Значение по-умолчанию: blog/post
-- `curentPost` - слуг или id текущего поста. Опционально.
+- `categoryPage` - slug для категорий постов. Значение по-умолчанию: blog/category
+- `postPage` - slug для постов. Значение по-умолчанию: blog/post
+- `curentPost` - slug или id текущего поста. Опционально.
 - `category` - id категории из которых необходимо вывести посты. Опционально.
  
 **Свойства:**
@@ -419,8 +419,58 @@ curentPost="{{ :slug }}"
 {% endfor %}
 ```
 
+### Вывод постов <a name="blog-posts">
 
+Расширение компонента blogPosts от Rainlab - добавлено кеширование данных. Время кеширования можно задавать через параметры. По умолчанию время составляет 1 час (3600) сек
 
+**Название компонента:** [``blogPostsBTDev``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/Posts.php)
+
+**Параметры:**
+
+- `pageNumber` - номер страницы для пагинации. Значение по-умолчанию: {{ :page }}
+- `categoryFilter` - slug категории из которой необходимо выводить посты. Опционально
+- `postsPerPage` - количество постов выводимых на странице. Значение по-умолчанию: 10
+- `noPostsMessage` - сообщение выводимое в случаи отсутствия постов. Значение по-умолчанию: rainlab.blog::lang.settings.posts_no_posts_default
+- `sortOrder = "title asc/title desc/created_at asc/created_at desc/updated_at asc/updated_at desc/published_at asc/published_at desc"` - slug для категорий постов. Значение по-умолчанию: published_at desc. Опционально
+- `categoryPage` - slug для категорий постов. Значение по-умолчанию: blog/category
+- `postPage` - slug для постов. Значение по-умолчанию: blog/post
+- `exceptPost` - ID/slug категорий, которую необходимо исключить. Опционально.
+- `exceptCategories` - разделенный запятыми список slug категорий, которые необходимо исключить. Опционально.
+- `cachingTime` - время кеширования в секундах. Значение по-умолчанию: 3600 сек. Опционально.
+
+ 
+**Свойства:**
+
+- `posts` - возвращает **данные** в виде масива, список постов
+
+#### Структура возвращаемых данных из ``posts``:
+
+<pre><code>array:[
+  0 => <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>     
+  ...
+]</code></pre>
+
+#### Пример использования
+
+```HTML
+[blogPostsBTDev]
+pageNumber = "{{ :page }}"
+categoryFilter = "finance"
+postsPerPage = 4
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+cachingTime = 300
+
+==
+{% for post in blogPostsBTDev.posts%}    
+    <a href="{{ post.url }}">
+        {{ post.title }}<br/>
+    </a>
+    
+{% endfor %}
+```
 
 
 ## Модели данных <a name="models">
@@ -460,7 +510,7 @@ curentPost="{{ :slug }}"
   "id": 2,
   "user_id": 29,
   "title": "",
-  "slug": "kak-moshenniki-pytayutsya-sobirat-nedoimki-po-nalogam",
+  "slug": "slug",
   "excerpt": "",
   "content": " ",
   "content_html": "", 
