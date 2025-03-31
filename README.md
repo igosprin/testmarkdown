@@ -25,6 +25,7 @@
     - [вывод всех авторов постов](#component-autor-list)
     - [вывод полной информации об авторе](#component-autor-profile)
     - [вывод постов из списка](#post-list)
+    - [вывод определенного количества постов из всех категорий](#blog-posts-categories)
 
 
 ### Возможность пользователю backend быть автором поста, добавляет профиль автора <a name="post-author"/>
@@ -309,6 +310,66 @@ limit = 2
 {% endfor %}
 ```
 
+### Ввывод определенного количества постов из всех категорий <a name="blog-posts-categories">
+
+Вывод определенного количества постов из всех категорий. Данные кешируются на 1 день.
+
+**Название компонента:** [``blogPostsByCategories``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/PostsByCategories.php)
+
+**Параметры:**
+
+- `limit` - количество постов по каждой категории. Значение по-умолчанию: 6
+ 
+**Свойства:**
+
+- `categories` - возвращает **данные** в виде масива, постов
+
+#### Структура возвращаемых данных из ``categories``:
+
+<pre><code>array:[
+  0 => RainLab\Blog\Models\Category{
+    "id":2,
+    "name":"name Category",
+    "slug":"fraud",
+    "code":null,
+    "description":"",
+    "parent_id":null,
+    "nest_left":1,
+    "nest_right":2,
+    "nest_depth":0,
+    "created_at":"2020-12-24T15:47:12.000000Z",
+    "updated_at":"2020-12-24T15:47:14.000000Z",
+    "color_category":null,
+    "page_title":"",
+    "meta_title":"",
+    "meta_description":"",
+    "url":"",
+    "posts": array:[
+        0 => <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>,
+        ...
+    ]
+    },       
+  ...
+]</code></pre>
+
+#### Пример использования
+
+```
+[blogPostsByCategories]
+limit = 2
+
+==
+{% for category in categories %}
+  category:{{category.name}}</br>
+  list posts:  
+  {% for post in category.posts %}     
+    <a  href="{{ 'blog/post'|page({ slug: post.slug }) }}">                                
+        {{ post.title }}                                
+    </a>
+  {% endfor %}
+{% endfor %}
+```
+
 
 
 
@@ -370,7 +431,11 @@ limit = 2
   "summary":"",
   "has_summary":true,
   "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
-  "viewsBt":10 
+  "viewsBt":10,
+  "categories": array:[
+    0 => <a href="#rainlabblogmodelscategory" title="RainLab\Blog\Models\Category">RainLab\Blog\Models\Category</a>,
+    ...
+  ]
  }</code></pre>
  
  ### Indikator\News\Models\Posts
@@ -399,4 +464,29 @@ limit = 2
   "seo_image":"",
   "content_label":0
   "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
+ }</code></pre>
+ 
+ ### RainLab\Blog\Models\Category
+
+<pre><code>{
+  "id":2,
+  "name":"name Category",
+  "slug":"fraud",
+  "code":null,
+  "description":"",
+  "parent_id":null,
+  "nest_left":1,
+  "nest_right":2,
+  "nest_depth":0,
+  "created_at":"2020-12-24T15:47:12.000000Z",
+  "updated_at":"2020-12-24T15:47:14.000000Z",
+  "color_category":null,
+  "page_title":"",
+  "meta_title":"",
+  "meta_description":"",
+  "url":"",
+  "posts": array:[
+    0 => <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>,
+    ...
+  ]
  }</code></pre>
