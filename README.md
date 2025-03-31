@@ -10,6 +10,7 @@
 - плагин RainLab.Blog
 - плагин GinoPane.BlogTimeToRead
 - плагин Vdomah.BlogViews
+- плагин Indikator.News
 
 ## Возможности и компоненты <a name="features"/>
 Плагин является дополнением к плагину RainLab.Blog. Основные дополнения:
@@ -151,6 +152,28 @@
 - `postsPerPage` - количество постов на странице
 - `newsPerPage` - количество новостей на странице
 
+**Свойства:**
+
+- `author` - возвращает **данные** в виде масива, об авторе
+- `authorsPostsCount` - возвращает **данные** в виде числа, количество постов автора
+- `authorPostCategories` - возвращает **данные** в виде масива, категорий постов
+- `authorsNewsCount` - возвращает **данные** в виде числа, количество новостей автора
+- `authorNewsCategories` - возвращает **данные** в виде масива, категорий новостей
+- `authorPostTags` - возвращает **данные** в виде масива, категорий новостей
+
+#### Структура возвращаемых данных из ``author``:
+
+<pre><code>BTDev\BlogExtension\Models\Author {
+	  "id":1,
+	  "nickname":"test-testovich",
+	  "about":"",
+	  "backend_user_id":20,
+	  "deleted_at":null,
+	  "created_at":"2022-04-26T15:48:40.000000Z",
+	  "updated_at":"2022-04-27T17:10:22.000000Z",
+      "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>
+ }</code></pre>
+
 **Методы:**
 
 - `getPostsList()` - возвращает **данные** в виде масива, постов пользователя 
@@ -162,6 +185,14 @@
   0 => <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>     
   ...
 ]</code></pre>
+
+#### Структура возвращаемых данных из ``getNewsList()``:
+
+<pre><code>array:[
+  0 => <a href="#indikatornewsmodelsposts" title="Indikator\News\Models\Posts">Indikator\News\Models\Posts</a>     
+  ...
+]</code></pre>
+
 
 
 #### Пример использования
@@ -185,7 +216,7 @@
 
 
 ## Модели данных <a name="models">
-### Backend\Models\User<a name="Backend_Models_User">
+### Backend\Models\User
 
 <pre><code>{
   "id": 40
@@ -215,7 +246,7 @@
   }  
 }</code></pre>
 
-### RainLab\Blog\Models\Post<a name="RainLab_Blog_Models_Post">
+### RainLab\Blog\Models\Post
 
 <pre><code>{
   "id": 2,
@@ -239,5 +270,33 @@
   }],
   "summary":"",
   "has_summary":true,
+  "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
+ }</code></pre>
+ 
+ ### Indikator\News\Models\Posts
+
+<pre><code>{
+  "id":774,
+  "title":"",
+  "slug":"",
+  "introductory":"",
+  "content":"",
+  "published_at":"2022-12-26T11:35:26.000000Z",
+  "status":"1",
+  "statistics":148,
+  "created_at":"2022-12-26T11:36:45.000000Z",
+  "updated_at":"2025-03-28T19:32:43.000000Z",
+  "image":"\/news\/20221226\/ge_bank.jpeg",
+  "featured":2,
+  "last_send_at":null,
+  "enable_newsletter_content":0,
+  "newsletter_content":"",
+  "user_id":29,
+  "tags":null,
+  "seo_title":"",
+  "seo_keywords":"",
+  "seo_desc":"",
+  "seo_image":"",
+  "content_label":0
   "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
  }</code></pre>
