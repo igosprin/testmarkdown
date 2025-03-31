@@ -464,9 +464,19 @@ postPage = "blog/post"
 cachingTime = 300
 
 ==
-{% for post in blogPostsBTDev.posts%}    
+{% for post in blogPostsBTDev.posts %}    
     <a href="{{ post.url }}">
         {{ post.title }}<br/>
+        {{ post.content_html|raw }}
+        {% for image in post.featured_images %}
+            <p>
+                <img
+                    data-src="{{ image.filename }}"
+                    src="{{ image.path }}"
+                    alt="{{ image.description }}"
+                    style="max-width: 100%" />
+            </p>
+        {% endfor %}
     </a>
     
 {% endfor %}
