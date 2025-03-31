@@ -537,7 +537,7 @@ cachingTime = 300
   }],
   "summary":"",
   "has_summary":true,
-  "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
+ 
   "viewsBt":10,
   "categories": array:[
     0 => <a href="#rainlabblogmodelscategory" title="RainLab\Blog\Models\Category">RainLab\Blog\Models\Category</a>,
