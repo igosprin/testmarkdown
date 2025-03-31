@@ -20,16 +20,11 @@
 - [цветовой код HEX для каждой категории](#hex-code)
 - [время чтения поста](#post-time)
 - [количество просмотров поста](#count-show-post) 
+- [создание списка постов](#create-post-list) 
 - [Компоненты](#components)
     - [вывод всех авторов постов](#component-autor-list)
     - [вывод полной информации об авторе](#component-autor-profile)
-    - [Форма создания/редактирования компании](#company-crud)
-    - [Список всех каталогов](#directory-list)
-    - [Каталог, список разделов каталога](#section-list)
-    - [Раздел каталога (список компаний по slug раздела)](#company-list-slug)
-    - [Раздел каталога (список компаний по id раздела)](#company-list-id)
-    - [Профиль компании](#item-profile)
-    - [Похожие компании](#similar-companies)
+    - [вывод постов из списка](#post-list)
 
 
 ### Возможность пользователю backend быть автором поста, добавляет профиль автора <a name="post-author"/>
@@ -104,6 +99,12 @@
 ```
 Свойство viewsBt кешируется на 2 часа.
 
+
+### Создание списка постов <a name="create-post-list">
+
+Возможность создавать кастомные списки постов. Для создания списка перейти на страницу Blog(Блог) -> PostLists.
+
+Использование: см. компонент [postList](#post-list)
 
 ## Компоненты <a name="components"/>
 
@@ -262,6 +263,53 @@ Tags:<br>
 ```
 
 
+### Вывод постов из списка <a name="post-list">
+
+Вывод постов из списка.
+
+**Название компонента:** [``postList``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/PostList.php)
+
+**Параметры:**
+
+- `listId` - id списка
+- `limit` - количество постов 
+ 
+**Методы:**
+
+- `getPostListItems()` - возвращает **данные** в виде масива, постов в списке
+
+#### Структура возвращаемых данных из ``getPostListItems``:
+
+<pre><code>array:[
+  0 => BTDev\BlogExtension\Models\PostListItem{
+    "id":1,
+    "list_id":"blog-page",
+    "post_id":2,
+    "order":1,
+    "created_at":"2022-02-21T15:48:54.000000Z",
+    "updated_at":"2022-02-21T15:48:54.000000Z",
+    "deleted_at":null,
+    "post": <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>
+  }     
+  ...
+]</code></pre>
+
+#### Пример использования
+
+```
+[postList]
+listId = "blog-page"
+limit = 2
+
+==
+{% set postListItems = postList.getPostListItems %}
+{% for postListItem in postListItems %}
+  <a href="{{ 'blog/post'|page({slug:postListItem.post.slug}) }}">{{postListItem.post.title}}</a>
+  {{postListItem.post.title}}
+{% endfor %}
+```
+
+
 
 
 
@@ -322,6 +370,7 @@ Tags:<br>
   "summary":"",
   "has_summary":true,
   "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
+  "viewsBt":10 
  }</code></pre>
  
  ### Indikator\News\Models\Posts
