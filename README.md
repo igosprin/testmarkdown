@@ -516,17 +516,17 @@ cachingTime = 300
 ### RainLab\Blog\Models\Post
 
 <pre><code>{
-  "id": 2,
-  "user_id": 29,
-  "title": "",
-  "slug": "slug",
-  "excerpt": "",
-  "content": " ",
-  "content_html": "", 
-  "published_at": "2021-10-28T15:00:00.000000Z",
-  "published": 1,
-  "created_at": "2021-10-28T12:53:34.000000Z",
-  "updated_at": "2022-05-13T18:10:53.000000Z",
+  "id":2,
+  "user_id":29,
+  "title":"",
+  "slug":"slug",
+  "excerpt":"",
+  "content":" ",
+  "content_html":"", 
+  "published_at":"2021-10-28T15:00:00.000000Z",
+  "published":1,
+  "created_at":"2021-10-28T12:53:34.000000Z",
+  "updated_at":"2022-05-13T18:10:53.000000Z",
   "metadata":null,
   "navigation":[{
     "id":0,
@@ -537,9 +537,9 @@ cachingTime = 300
   }],
   "summary":"",
   "has_summary":true,
- 
+  "user": <a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>,
   "viewsBt":10,
-  "categories": array:[
+  "categories":array:[
     0 => <a href="#rainlabblogmodelscategory" title="RainLab\Blog\Models\Category">RainLab\Blog\Models\Category</a>,
     ...
   ]
