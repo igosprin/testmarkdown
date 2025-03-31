@@ -26,6 +26,7 @@
     - [вывод полной информации об авторе](#component-autor-profile)
     - [вывод постов из списка](#post-list)
     - [вывод определенного количества постов из всех категорий](#blog-posts-categories)
+    - [вывод постов упорядоченных случайным образом](#blog-posts-similar-random)
 
 
 ### Возможность пользователю backend быть автором поста, добавляет профиль автора <a name="post-author"/>
@@ -81,7 +82,8 @@
 
 Это расширение показывает время чтения постов. Для его работы необходима установка плагина GinoPane.BlogTimeToRead
 Пример использования:
-```
+
+```HTML
 [timeToReadExtended]
 ==
 ... 
@@ -92,8 +94,10 @@
 ### Количество просмотров поста <a name="count-show-post">
 
 Необходим плагин Vdomah.BlogViews
+
 Пример использования:
-```
+
+```HTML
 ... 
 {{ post.viewsBt }}
 ... 
@@ -130,7 +134,7 @@
 
 #### Пример использования
 
-```
+```HTML
 [authorsList]
 
 ==
@@ -157,7 +161,7 @@
 
 **Свойства:**
 
-- `author` - возвращает **данные** в виде масива, об авторе
+- `author` - возвращает **данные** об авторе
 - `authorsPostsCount` - возвращает **данные** в виде числа, количество постов автора
 - `authorPostCategories` - возвращает **данные** в виде масива, категорий постов
 - `authorsNewsCount` - возвращает **данные** в виде числа, количество новостей автора
@@ -231,7 +235,7 @@ array:[
 
 #### Пример использования
 
-```
+```HTML
 [authorProfile]
 nickname = "{{ :slug }}"
 postsPerPage = 20
@@ -277,7 +281,7 @@ Tags:<br>
  
 **Методы:**
 
-- `getPostListItems()` - возвращает **данные** в виде масива, постов в списке
+- `getPostListItems()` - возвращает **данные** в виде масива, список постов в списке
 
 #### Структура возвращаемых данных из ``getPostListItems``:
 
@@ -297,7 +301,7 @@ Tags:<br>
 
 #### Пример использования
 
-```
+```HTML
 [postList]
 listId = "blog-page"
 limit = 2
@@ -322,7 +326,7 @@ limit = 2
  
 **Свойства:**
 
-- `categories` - возвращает **данные** в виде масива, постов
+- `categories` - возвращает **данные** в виде масива, список постов
 
 #### Структура возвращаемых данных из ``categories``:
 
@@ -354,7 +358,7 @@ limit = 2
 
 #### Пример использования
 
-```
+```HTML
 [blogPostsByCategories]
 limit = 2
 
@@ -370,6 +374,50 @@ limit = 2
 {% endfor %}
 ```
 
+### Вывод постов упорядоченных случайным образом  <a name="blog-posts-similar-random">
+
+Выводит посты, упоряточенные случайным образом(Random). Данные кешируются на 20 минут.
+
+**Название компонента:** [``blogPostsSimilar``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/PostsSimilar.php)
+
+**Параметры:**
+
+- `limit` - количество постов по каждой категории. Значение по-умолчанию: 10
+- `noPostsMessage` - сообщение выводимое в случаи отсутствия постов. Значение по-умолчанию: rainlab.blog::lang.settings.posts_no_posts_default
+- `categoryPage` - слуг для категорий постов. Значение по-умолчанию: blog/category
+- `postPage` - слуг для постов. Значение по-умолчанию: blog/post
+- `curentPost` - слуг или id текущего поста. Опционально.
+- `category` - id категории из которых необходимо вывести посты. Опционально.
+ 
+**Свойства:**
+
+- `posts` - возвращает **данные** в виде масива, список постов
+
+#### Структура возвращаемых данных из ``posts``:
+
+<pre><code>array:[
+  0 => <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>     
+  ...
+]</code></pre>
+
+#### Пример использования
+
+```HTML
+[blogPostsSimilar]
+limit = 6
+noPostsMessage = "No posts found"
+categoryPage = "blog/category"
+postPage = "blog/post"
+curentPost="{{ :slug }}"
+
+==
+{% for post in blogPostsSimilar.posts|slice(0, 8)%}    
+    <a href="{{ post.url }}">
+        {{ post.title }}
+    </a>
+    
+{% endfor %}
+```
 
 
 
