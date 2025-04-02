@@ -12,7 +12,7 @@
 ## Краткое описание <a name="brief_description"/>
 Плагин является расширением базовых плагинов RainLab.Blog,GinoPane.BlogTimeToRead,Vdomah.BlogViews,Indikator.News и Rahman.Blogtags. 
  
-## Возможности и компоненты <a name="features"/> 
+## Возможности <a name="features"/> 
 - [Авторы постов блога и новостей](#post-author)
 - [Оглавление (table of contents) к посту](#post-navigation)
 - [Пользовательские списков постов](#create-post-list) 
@@ -21,15 +21,6 @@
 - [Кеширование количества просмотров поста](#count-show-post) 
 - Прикрепленные/избранные посты
 - Кеширование списка постов
-
-## Компоненты <a name="components"/> 
-  - [Список авторов](#component-autor-list)
-  - [Информация об авторе](#component-autor-profile)
-  - [Пользовательский список](#post-list)
-  - [Список постов со всех категорий](#blog-posts-categories)
-  - [Список постов в случайно порядке](#blog-posts-similar-random)
-  - [Список постов с параметрами](#blog-posts)
-
 
 ### Авторы постов блога и новостей <a name="post-author"/>
  
@@ -114,7 +105,13 @@
 
 Использование: см. компонент [postList](#post-list)
 
-
+## Компоненты <a name="components"/> 
+  - [Список авторов](#component-autor-list)
+  - [Информация об авторе](#component-autor-profile)
+  - [Пользовательский список](#post-list)
+  - [Список постов со всех категорий](#blog-posts-categories)
+  - [Список постов в случайно порядке](#blog-posts-similar-random)
+  - [Список постов с параметрами](#blog-posts)
 
 ### Список авторов <a name="component-autor-list">
 
