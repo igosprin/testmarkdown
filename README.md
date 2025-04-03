@@ -6,17 +6,17 @@
 - [Возможности](#features)
 - [Компоненты](#components)
 - [Требования](#require)
-- [Модели](#models)
+- [Модели данных](#models)
 
 
 ## Краткое описание <a name="brief_description"/>
-Плагин является расширением базовых плагинов RainLab.Blog,GinoPane.BlogTimeToRead,Vdomah.BlogViews,Indikator.News и Rahman.Blogtags. 
+Плагин является расширением для базовых плагинов RainLab.Blog,GinoPane.BlogTimeToRead,Vdomah.BlogViews,Indikator.News и Rahman.Blogtags. 
  
 ## Возможности <a name="features"/> 
 - [Авторы постов блога и новостей](#post-author)
 - [Оглавление (table of contents) к посту](#post-navigation)
 - [Пользовательские списков постов](#create-post-list) 
-- [Персональный цвета для разделов блога](#hex-code)
+- [Персональные цвета для разделов блога](#hex-code)
 - [Время чтения поста](#post-time)
 - [Кеширование количества просмотров поста](#count-show-post) 
 - Прикрепленные/избранные посты
@@ -25,18 +25,20 @@
 ### Авторы постов блога и новостей <a name="post-author"/>
  
 Автор - это новая роль в BackendUser. 
-Ее нужно создать в настройках OctoberCMS: Администраторы -> Управление ролями -> Новая роль со следующими параметрами:
+Автор — это новая роль в BackendUser. Чтобы создать новую роль, выполните следующие шаги в настройках OctoberCMS:
+1. Перейдите в "Администраторы" -> "Управление ролями".
+2. Выберите "Новая роль" и задайте следующие параметры:
 - **name: Author**
 - **code: author**
 - **permissions: blog/manage the blog posts(allow)**
 
 После этого при изменении или добавлении нового пользователя для backend будет доступен выбор этой роли. 
 
-Чтобы назначить автора блога, вам нужно перейти на вкладку Blog(Блог) в OctoberCMS и после выбора поста для редактирования, нажать вкладку  Manage( Управление) -> Published by(Опубликовано) и выбрать имя нужного автора.
+Чтобы назначить автора блога, перейдите на вкладку Blog (Блог) в OctoberCMS, выберите пост для редактирования, нажмите на вкладку Manage (Управление) -> Published by (Опубликовано) и выберите имя нужного автора.
 
 ### Оглавление (table of contents) к посту <a name="post-navigation">
-Это расширение получает весь текст записи, проверяет его и находит заголовки h1, h2. Если они были найдены, генерирует массив JSON с этими заголовками и их URL.
-Для отображения навигации необходим файл, в котором содержимое поста отображается после этого кода:
+Это расширение получает текст записи, проверяет его на наличие заголовков h1 и h2, генерирует массив JSON с этими заголовками и их URL.
+Для отображения навигации используйте следующий код:
 
 ```
 <ul>
@@ -62,18 +64,19 @@
 - **post.innerHtml** - текст заголовков.
 - **post.id** - URL-адрес в тексте для этого заголовка.
 
-### Персональный цвета для разделов блога <a name="hex-code">
+### Персональные цвета для разделов блога <a name="hex-code">
 
 Это свойство расширяет модель категории и может быть добавлено как свойство по умолчанию.
+Чтобы вывести цвет категории, используйте:
 ```
 {{ category.color }}
-// Вывод будет таким: #000000
+// Вывод будет: #000000
 ```
-Для выбора цвета для категории, нужно перейти на страницу Blog(Блог) -> Categories(Категории) и выбрать для редактирования категорию. 
+Для выбора цвета для категории перейдите на страницу Blog (Блог) -> Categories (Категории) и выберите категорию для редактирования. 
 
 ### Время чтения поста <a name="post-time">
 
-Это расширение показывает время чтения постов. Для его работы необходима установка плагина GinoPane.BlogTimeToRead.
+Это расширение показывает время чтения постов. Для его работы требуется установка плагина GinoPane.BlogTimeToRead.
 
 Пример использования:
 
@@ -87,7 +90,7 @@
 
 ### Количество просмотров поста <a name="count-show-post">
 
-Необходим плагин Vdomah.BlogViews
+Для работы нужен плагин Vdomah.BlogViews - этот плагин добавляет свойство viewsBt, а расширение кеширует его на 2 часа. Для работы нужен плагин Vdomah.BlogViews.
 
 Пример использования:
 
@@ -96,22 +99,24 @@
 {{ post.viewsBt }}
 ... 
 ```
-Свойство viewsBt кешируется на 2 часа.
 
 
-### Пользовательские списков постов <a name="create-post-list">
+### Пользовательские списки постов <a name="create-post-list">
 
-Добавлена возможность создавать списки постов. Для создания списка необходимо перейти на страницу Blog(Блог) -> PostLists.
+Добавлена возможность создавать пользовательские списки постов. Для создания списка перейдите на страницу Blog (Блог) -> PostLists.
 
 Использование: см. компонент [postList](#post-list)
 
 ## Компоненты <a name="components"/> 
   - [Список авторов](#component-autor-list)
   - [Информация об авторе](#component-autor-profile)
-  - [Пользовательский список](#post-list)
-  - [Список постов со всех категорий](#blog-posts-categories)
-  - [Список постов в случайно порядке](#blog-posts-similar-random)
-  - [Список постов с параметрами](#blog-posts)
+  - [Информация об авторе поста](#component-autor-post)
+  - [Информация об авторе новостного поста](#component-autor-news)
+  - [Пользовательский список](#component-post-list)
+  - [Список постов со всех категорий](#component-blog-posts-categories)
+  - [Список постов в случайном порядке](#component-blog-posts-similar-random)
+  - [Список постов с параметрами](#component-blog-posts)
+  - [Список прикрепленных/избранных постов](#component-pinnedposts)
 
 ### Список авторов <a name="component-autor-list">
 
@@ -265,8 +270,89 @@ Tags:<br>
 
 ```
 
+### Информация об авторе поста<a name="component-autor-post">
 
-### Пользовательский список <a name="post-list">
+Компонент выводит информацию об авторе поста
+
+**Название компонента:** [``authorPost``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/AuthorPost.php)
+
+**Параметры:**
+
+- `slug= "{{ :slug }}"` - slug поста
+
+**Методы:**
+
+- `getAuthorByPostSlug()` - возвращает **данные** в виде объекта, об авторе поста
+
+#### Структура возвращаемых данных из ``getAuthorByPostSlug``:
+
+<pre><code>BTDev\BlogExtension\Models\Author {
+	  "id":1,
+	  "nickname":"test-testovich",
+	  "about":"",
+	  "backend_user_id":20,
+	  "deleted_at":null,
+	  "created_at":"2022-04-26T15:48:40.000000Z",
+	  "updated_at":"2022-04-27T17:10:22.000000Z",
+    "user": "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>		
+  }</code></pre>
+
+#### Пример использования
+
+```HTML
+[authorPost]
+slug = "{{ :slug }}"
+==
+{% set author = authorPost.getAuthorByPostSlug() %}
+
+{{ author.nickname }} <br>
+{{ author.user.getFullNameAttribute }} <br>
+{{ author.user.email }} <br>
+{{ author.about|raw }} <br>
+```
+
+### Информация об авторе новостного поста<a name="component-autor-news">
+
+Компонент выводит информацию об авторе новостного поста
+
+**Название компонента:** [``authorNews``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/AuthorNews.php)
+
+**Параметры:**
+
+- `slug= "{{ :slug }}"` - slug новостного поста
+
+**Методы:**
+
+- `getAuthorByNewsSlug()` - возвращает **данные** в виде объекта, об авторе новостного поста
+
+#### Структура возвращаемых данных из ``getAuthorByNewsSlug``:
+
+<pre><code>BTDev\BlogExtension\Models\Author {
+	  "id":1,
+	  "nickname":"test-testovich",
+	  "about":"",
+	  "backend_user_id":20,
+	  "deleted_at":null,
+	  "created_at":"2022-04-26T15:48:40.000000Z",
+	  "updated_at":"2022-04-27T17:10:22.000000Z",
+    "user": "user":<a href="#backendmodelsuser" title="Backend\Models\User">Backend\Models\User</a>		
+  }</code></pre>
+
+#### Пример использования
+
+```HTML
+[authorNews]
+slug = "{{ :slug }}"
+==
+{% set author = authorNews.getAuthorByNewsSlug() %}
+
+{{ author.nickname }} <br>
+{{ author.user.getFullNameAttribute }} <br>
+{{ author.user.email }} <br>
+{{ author.about|raw }} <br>
+```
+
+### Пользовательский список <a name="component-post-list">
 
 Компонент выводит посты из пользовательского списка.
 
@@ -312,7 +398,7 @@ limit = 2
 {% endfor %}
 ```
 
-### Список постов со всех категорий <a name="blog-posts-categories">
+### Список постов со всех категорий <a name="component-blog-posts-categories">
 
 Компонент выводит определенное количества постов из всех категорий. Данные кешируются на 1 день.
 
@@ -372,7 +458,7 @@ limit = 2
 {% endfor %}
 ```
 
-### Список постов в случайно порядке <a name="blog-posts-similar-random">
+### Список постов в случайно порядке <a name="component-blog-posts-similar-random">
 
 Компонент выводит посты, упорядоченные случайным образом(Random). Данные кешируются на 20 минут.
 
@@ -417,9 +503,9 @@ curentPost="{{ :slug }}"
 {% endfor %}
 ```
 
-### Спосок постов с параметрами <a name="blog-posts">
+### Спосок постов с параметрами <a name="component-blog-posts">
 
-Расширение компонента blogPosts от Rainlab - добавлено кеширование данных. Время кеширования можно задавать через параметры. По умолчанию время составляет 1 час (3600) сек
+Этот компонент расширяет базовый компонент blogPosts от Rainlab - добавляет кеширование данных. Время кеширования можно задавать через параметры. По умолчанию время составляет 1 час (3600) сек
 
 **Название компонента:** [``blogPostsBTDev``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/Posts.php)
 
@@ -429,7 +515,7 @@ curentPost="{{ :slug }}"
 - `categoryFilter` - slug категории из которой необходимо выводить посты. Опционально
 - `postsPerPage` - количество постов выводимых на странице. Значение по умолчанию: 10
 - `noPostsMessage` - сообщение выводимое в случаи отсутствия постов. Значение по умолчанию: rainlab.blog::lang.settings.posts_no_posts_default
-- `sortOrder = "title asc/title desc/created_at asc/created_at desc/updated_at asc/updated_at desc/published_at asc/published_at desc/random"` - slug для категорий постов. Значение по умолчанию: published_at desc. Опционально
+- `sortOrder = "title asc/title desc/created_at asc/created_at desc/updated_at asc/updated_at desc/published_at asc/published_at desc/random"` - поле по которому необходимо отсортировать посты. Значение по умолчанию: published_at desc. Опционально
 - `categoryPage` - slug для категорий постов. Значение по умолчанию: blog/category
 - `postPage` - slug для постов. Значение по умолчанию: blog/post
 - `exceptPost` - ID/slug категорий, которую необходимо исключить. Опционально.
@@ -480,6 +566,65 @@ cachingTime = 300
 {% endfor %}
 ```
 
+### Список прикрепленных/избранных постов <a name="component-pinnedposts">
+
+Этот компонент выводит список  прикрепленных/избранных постов.
+
+**Название компонента:** [``pinnedPosts``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/PinnedPosts.php)
+
+**Параметры:**
+
+- `categoryPage` - slug для категорий постов. Значение по умолчанию: blog/category
+- `postPage` - slug для постов. Значение по умолчанию: blog/post
+
+ 
+**Свойства:**
+
+- `pinnedPosts` - возвращает **данные** в виде массива, список постов
+
+#### Структура возвращаемых данных из ``pinnedPosts``:
+
+<pre><code>array:[
+  0 =>BTDev\BlogExtension\Models\PinnedPost{
+    {
+      "id":1,
+      "created_at":"2025-04-03T07:54:51.000000Z",
+      "updated_at":"2025-04-03T07:54:51.000000Z",
+      "deleted_at":null,
+      "post_id":3,
+      "page":"\/",
+      "order":1,
+      "post": <a href="#rainlabblogmodelspost" title="RainLab\Blog\Models\Post">RainLab\Blog\Models\Post</a>
+    } 
+  }     
+  ...
+]</code></pre>
+#### Пример использования
+
+```HTML
+[pinnedPosts]
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+==
+{% set posts = pinnedPosts.pinnedPosts %}
+{% for post in posts %}    
+    <a href="{{ post.post.url }}">
+        {{ post.post.title }}<br/>
+        {{ post.post.content_html|raw }}
+        {% for image in post.post.featured_images %}
+            <p>
+                <img
+                    data-src="{{ image.filename }}"
+                    src="{{ image.path }}"
+                    alt="{{ image.description }}"
+                    style="max-width: 100%" />
+            </p>
+        {% endfor %}
+    </a>
+    
+{% endfor %}
+```
 
 ## Модели данных <a name="models">
 ### Backend\Models\User
