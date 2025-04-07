@@ -20,7 +20,6 @@
 
 При инициализации плагин автоматически определяет страну пользователя по IP. Поиск осуществляется с помощью сервиса ipinfo.io с передачей токена. Для того чтобы установить токен необходимо перейдите на вкладку Settings (Настройки) в OctoberCMS, выбрать сервис IntlTelInput.
 
-<img src="https://drive.google.com/file/d/12coDyiqCVxRjxA4KXLi3aqLq0EJlXZot/view?usp=drive_link"/>
 
 ## Компоненты <a name="components"/> 
   - [Преобразования поля и автоматическое определение страны пользователя](#rerender-input)
