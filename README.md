@@ -113,6 +113,7 @@
 Так же комментарии можно добавлять из панели администратора. Для этого необходимо перейти выбрать подраздел Comments  в разделе Blog.
 
 **Примечание**
+
 При добавлении комментария правильно заполните поле url: указывается страница без домена. Например: blog/post/hotite-vyvesti-dengi-ot-brokera-najdite-beneficiara-razbor-novoj-shemy-obmana
 
 
@@ -641,15 +642,15 @@ postPage = "blog/post"
     
 {% endfor %}
 ```
-### Комментарии к постам <a name="component-comments">
+### Комментарии <a name="component-comments">
 
-Этот компонент дает возможность оставлять комментарии к постам (и не только). Комментарии кешируются на 1 час.
+Этот компонент дает возможность добавлять и выводить комментарии. Комментарии кешируются на 1 час.
 
 **Название компонента:** [``commentsPostBtdev``](https://github.com/VadimIzmalkov/oc-blogextension-plugin/blob/main/components/CommentsPost.php)
 
 **Параметры:**
 
-- `viewForm = "false/true"` - признак вывода формы ввода коментариев. По умолчанию false
+- `viewForm = "false/true"` - выводить форму ввода коментариев или нет. По умолчанию false
  
 **Свойства:**
 
