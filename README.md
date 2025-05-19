@@ -27,7 +27,7 @@
     - [Телефонный справочник](#phonebook-component)
     - [Отзывы раздела](#last-section-reviews")
     - [Отзывы каталога](#last-directory-reviews")
-    - [Раздел "вопросы и ответы" определенной секции](#directory-section-faq")
+    - [Раздел "вопросы и ответы" определенной секции](#directory-faq-section")
 - [База данных](#database)
     - [Схема таблиц и связей](#db-scheme)
     - [Модели](#models)
@@ -1174,7 +1174,7 @@ orderDirection = "desc"
 {% endfor %}
 ```
 
-### Раздел "вопросы и ответы" определенной секции <a name="directory-section-faq"/>
+### Раздел "вопросы и ответы" определенной секции <a name="directory-faq-section"/>
 
 Выводит вопросы и ответы определенной секции.
 
@@ -1189,7 +1189,7 @@ orderDirection = "desc"
 
 - `getFaqsList()` - возвращает коллекцию вопросов и ответов
 
-#### Пример использования: <a name="directory-section-faq-example" />
+#### Пример использования: <a name="directory-faq-section-example" />
 
 ```HTML
 <!-- компонент -->
